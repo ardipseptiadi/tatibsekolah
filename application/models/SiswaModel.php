@@ -65,10 +65,10 @@ class SiswaModel extends CI_Model {
 	public function insertPelanggaran($data)
 	{
 		$searchSiswa = $this->db->get_where($this->tableName, array('nis' => $data['nis']),1)->row();
-		if(isset($searchSiswa->id)){
+		if(isset($searchSiswa->nis)){
 			$data_pelanggaran = array(
-														'id_siswa' => $searchSiswa->id,
-														'id_tatib' => $data['pelanggaran'],
+														'nis' => $searchSiswa->nis,
+														'kode_tatib' => $data['pelanggaran'],
 														'alasan' => $data['alasan']
 													);
 			return $this->db->insert('tb_pelanggaran',$data_pelanggaran);

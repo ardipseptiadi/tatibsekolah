@@ -42,10 +42,23 @@
               <th>Siswa</th>
               <th>Pelanggaran</th>
               <th>Point</th>
-              <th>Punishment</th>
             </tr>
           </thead>
           <tbody>
+            <?php
+                $no=1;
+                foreach ($siswa_melanggar as $detail_melanggar) {
+            ?>
+              <tr>
+                <td><?=@$no?></td>
+                <td><?=@$detail_melanggar['nama_siswa']?></td>
+                <td><?=@$detail_melanggar['nama_pelanggaran']?></td>
+                <td><?=@$detail_melanggar['poin']?></td>
+              </tr>
+            <?php
+                  $no++;
+                }
+            ?>
           </tbody>
         </table>
       </div>

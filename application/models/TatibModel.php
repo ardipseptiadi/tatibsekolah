@@ -17,10 +17,10 @@ class TatibModel extends CI_Model {
 
 		return $this->db->get();
 	}
-	public function selectById($id){
+	public function selectById($kode){
 		$this->db->select('*');
 		$this->db->from($this->tableName);
-		$this->db->where('id',$id);
+		$this->db->where('kode',$kode);
 		// $this->db->limit($from,$offset);
 
 		return $this->db->get();
@@ -30,20 +30,20 @@ class TatibModel extends CI_Model {
 		$this->db->insert($this->tableName,$data);
 	}
 
-	public function update($id,$data){
+	public function update($kode,$data){
 		$this->db->set($data);
-		$this->db->where('id',$id);
+		$this->db->where('kode',$kode);
 		$this->db->update($this->tableName);
 	}
 
-	public function delete($id){
-		$this->db->where('id',$id);
+	public function delete($kode){
+		$this->db->where('kode',$kode);
 		$this->db->delete($this->tableName);
 	}
 
 	public function selectAllDropdown()
 	{
-			$this->db->select('id,nama, kode');
+			$this->db->select('nama, kode');
 	   	$this->db->from($this->tableName);
 	   	$query = $this->db->get();
 	   	return $query->result();

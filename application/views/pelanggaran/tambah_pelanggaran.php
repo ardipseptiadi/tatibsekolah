@@ -57,11 +57,12 @@
                             <thead>
                               <tr>
                                 <th>No</th>
+                                <th>Tanggal</th>
                                 <th>Kode</th>
                                 <th>Nama</th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbl_riwayat_pelanggaran">
                             </tbody>
                           </table>
                         </td>
@@ -73,7 +74,7 @@
                             <option value="">Pilih</option>
                             <?php
                               foreach ($listTatib as $val_tatib) {
-                                echo "<option value='".$val_tatib->id."'>".$val_tatib->kode."-".$val_tatib->nama."</option>";
+                                echo "<option value='".$val_tatib->kode."'>".$val_tatib->kode."-".$val_tatib->nama."</option>";
                               }
                              ?>
                           </select>
@@ -111,7 +112,9 @@
                       },
                       success: function(res){
                         $('.col-table-form').show();
-                        var res = JSON.parse(res);
+                        var res_getsiswa = JSON.parse(res);
+                        var res = res_getsiswa.siswa;
+                        var res_riwayat = res_getsiswa.riwayat;
                         if(res.nama){
                           $('#nama').val(res.nama);
                         }
@@ -124,6 +127,21 @@
                         if(res.kontak){
                           $('#kontak').val(res.kontak);
                         }
+                        var riwayat_siswa = '';
+                        var no_r = 1;
+                        $('#tbl_riwayat_pelanggaran').empty();
+                        if(res_riwayat.length >0){
+                          $.each(res_riwayat,function(key,val){
+                            riwayat_siswa += '<tr>';
+                            riwayat_siswa += '<td>'+no_r+'</td>';
+                            riwayat_siswa += '<td>'+val.created_date+'</td>';
+                            riwayat_siswa += '<td>'+val.kode_tatib+'</td>';
+                            riwayat_siswa += '<td>'+val.nama_pelanggaran+'</td>';
+                            riwayat_siswa += '</tr>';
+                            no_r++;
+                          });
+                        }
+                        $('#tbl_riwayat_pelanggaran').html(riwayat_siswa);
                       },
                       error:function(res){
                         $('#errorContent').html('<p class="text-danger">NIS Tidak Ditemukan</p>');
@@ -154,7 +172,7 @@
                           },
                       url:"<?php echo base_url('index.php/pelanggaran/simpanPelanggaran') ?>",
                       success:function(res){
-                        console.log(res);
+                        window.location.replace("<?php  echo base_url('index.php/admin/pelanggaran'); ?>");
                       },
                       error:function(res){
                         console.log(res);

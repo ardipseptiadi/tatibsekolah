@@ -2,18 +2,18 @@
 <head>
 
     <!-- Custom Theme Style -->
-   
+
     <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/sweetalert/sweetalert.css">
-    <script src="<?php echo base_url(); ?>assets/css/sweetalert/sweetalert.min.js"></script>    
- 
+    <script src="<?php echo base_url(); ?>assets/css/sweetalert/sweetalert.min.js"></script>
+
 	<title>Sistem tata tertib</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="<?php echo base_url(); ?>bootstrap/js/jquery.min.js"></script>
 	<script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>bootstrap/css/font-awesome.min.css"> 
+	<link rel="stylesheet" href="<?php echo base_url(); ?>bootstrap/css/font-awesome.min.css">
 
 	<style>
 		.dropdown-submenu {
@@ -48,7 +48,21 @@
                   <li>
                     <a href="<?php echo site_url('admin/kelas'); ?>">Kelas</a>
                   </li>
-				  <li>
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Rekap Pelanggaran<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+          					  <li><a href="<?php echo site_url('kelas/rekapJumlahPoin'); ?>">Poin per Kelas</a></li>
+            					 <li><a href="<?php echo site_url('kelas/rekapJumlahSiswa'); ?>">Siswa per Kelas</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Metode<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+          					  <li><a href="<?php echo site_url('metode/fuzzy'); ?>">Fuzzy</a></li>
+          					  <li><a href="<?php echo site_url('metode/kriteriaGroup'); ?>">Penentuan Kriteria</a></li>
+          					  <li><a href="<?php echo site_url('metode/ratingPoin'); ?>">Rating Poin</a></li>
+          					  <li><a href="<?php echo site_url('metode/saw'); ?>">Ranking</a></li>
+                    </ul>
+                  </li>
+				          <li>
                     <a href="<?php echo site_url('admin/pelanggaran'); ?>">Pelanggaran</a>
                   </li>
                   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Siswa<span class="caret"></span></a>
@@ -90,7 +104,7 @@
                   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Peraturan<span class="caret"></span></a>
                     <ul class="dropdown-menu">
 					  <li><a href="<?php echo site_url('admin/tatib'); ?>">Tata Tertib</a></li>
-					   <li><a href="<?php echo site_url('admin/sanksi'); ?>">Sanksi</a></li> 
+					   <li><a href="<?php echo site_url('admin/sanksi'); ?>">Sanksi</a></li>
                     </ul>
                   </li>
                   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>

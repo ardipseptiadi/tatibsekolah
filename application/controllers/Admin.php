@@ -276,7 +276,7 @@ class Admin extends CI_Controller {
 	public function pelanggaran()
 	{
 			$data['guru'] = $this->GuruModel->selectAllJoinguru()->result_array();
-
+			$data['siswa_melanggar'] = $this->PelanggaranModel->selectAllSiswaMelanggar()->result_array();
 			// var_dump($data['guru']);
 			$this->load->view('layout/aheader',$this->head);
 			$this->load->view('pelanggaran/daftar',$data);

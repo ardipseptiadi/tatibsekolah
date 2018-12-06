@@ -22,8 +22,10 @@ class Pelanggaran extends CI_Controller {
 	public function getSiswa()
 	{
 		$nis = $this->input->get('nis');
-		$hasil = $this->SiswaModel->selectByNIS($nis)->row();
-		// var_dump($hasil);exit;
+		$hasil = [];
+		$hasil['siswa'] = $this->SiswaModel->selectByNIS($nis)->row();
+		$hasil['riwayat'] = $this->PelanggaranModel->selectPelanggaranByNis($nis)->result_array();
+
 		if(is_null($hasil)){
 			header('HTTP/1.1 400 Kesalahan');
       header('Content-Type: application/json; charset=UTF-8');
