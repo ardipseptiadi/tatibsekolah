@@ -23,16 +23,16 @@
                     <tr class="warning">
                       <td style="background: #d3fffb;">Kode</td>
                       <td style="background: #d3fffb;"><input type="text" name="kode" value="<?php echo $edit['kode']; ?>"  class="form-control" required=""></td>
-                    </tr> 
+                    </tr>
                     <tr class="warning">
                       <td style="background: #d3fffb;">Poin</td>
                       <td style="background: #d3fffb;"><input type="number" name="poin" value="<?php echo $edit['poin']; ?>"  class="form-control" required=""></td>
-                    </tr>                      
-                      <input type="hidden" name="id" value="<?php echo $edit['id']; ?>">
+                    </tr>
+                      <input type="hidden" name="kode" value="<?php echo $edit['kode']; ?>">
                     <tr>
                       <td style="background: #d3fffb;"></td>
                       <td style="background: #d3fffb;"><input type="submit" value="Edit" class="btn btn-primary"></td>
-                    </tr>                        
+                    </tr>
                     </tbody>
                 </table>
               </div>

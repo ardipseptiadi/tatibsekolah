@@ -8,7 +8,7 @@
                   <a href="<?php echo site_url('admin/tatibAct/add');?>" title="Materi"><button class="btn btn-primary" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Tambah Tata Tertib</button></a>
                   <div class="row">
                     <div class="col-sm-2">
-                      <h4>Show 
+                      <h4>Show
                         <select>
                           <option nama="" value="">10</option>
                           <option nama="" value="">25</option>
@@ -55,8 +55,8 @@
                         <td><?php echo $list['kode']; ?></td>
                         <td><?php echo $list['poin']; ?></td>
                         <td>
-                          <a href="<?php echo site_url('admin/tatibAct/edit/').$list['id'];?>" title="Edit"><button class="btn btn-warning" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a>
-                          <a onclick="deletes(<?php echo $list['id']; ?>)" title="Tugas"><button class="btn btn-danger" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
+                          <a href="<?php echo site_url('admin/tatibAct/edit/').$list['kode'];?>" title="Edit"><button class="btn btn-warning" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a>
+                          <a onclick="deletes(<?php echo $list['kode']; ?>)" title="Tugas"><button class="btn btn-danger" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
                         </td>
                       </tr>
                       <?php } ?>

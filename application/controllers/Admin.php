@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
 	}
 	public function guruAct($comm,$id=0){
 		if($comm == "add"){
-			$data['mapel'] = $this->MapelModel->selectAll()->result_array();
+			$data['mapel'] = $this->TatibModel->selectAll()->result_array();
 			$this->load->view('layout/aheader',$this->head);
 			$this->load->view('admin/fGuru',$data);
 			$this->load->view('layout/afooter');	//
@@ -42,7 +42,7 @@ class Admin extends CI_Controller {
 			redirect('admin/guru');
 		}else if($comm=="edit"){
 			$data['edit']=$this->GuruModel->selectById($id)->result_array()[0];
-			$data['mapel'] = $this->MapelModel->selectAll()->result_array();
+			$data['mapel'] = $this->TatibModel->selectAll()->result_array();
 			$this->load->view('layout/aheader',$this->head);
 			$this->load->view('admin/fGuruEdit',$data);
 			$this->load->view('layout/afooter');
@@ -53,7 +53,7 @@ class Admin extends CI_Controller {
 		}
 	}
 	public function tatib(){
-		$data['tatib'] = $this->MapelModel->selectAll()->result_array();
+		$data['tatib'] = $this->TatibModel->selectAll()->result_array();
 
 		// var_dump($data['tatib']);
 		$this->load->view('layout/aheader',$this->head);
@@ -67,19 +67,19 @@ class Admin extends CI_Controller {
 			$this->load->view('layout/afooter');
 		}else if($comm == "add2"){
 			$data = $this->input->post();
-			$this->MapelModel->insert($data);
+			$this->TatibModel->insert($data);
 			redirect('admin/tatib/');
 		}else if($comm == "del"){
-			$this->MapelModel->delete($id);
+			$this->TatibModel->delete($id);
 			redirect('admin/tatib');
 		}else if($comm=="edit"){
-			$data['edit']=$this->MapelModel->selectById($id)->result_array()[0];
+			$data['edit']=$this->TatibModel->selectById($id)->result_array()[0];
 			$this->load->view('layout/aheader',$this->head);
 			$this->load->view('admin/ftatibEdit', $data);
 			$this->load->view('layout/afooter');
 		}else if($comm=="edit2"){
 			$data = $this->input->post();
-			$this->MapelModel->update($data['id'], $data);
+			$this->TatibModel->update($data['kode'], $data);
 			redirect('admin/tatib/');
 		}
 	}
